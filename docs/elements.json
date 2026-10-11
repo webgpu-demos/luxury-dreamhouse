@@ -1,0 +1,754 @@
+[
+ {
+  "id": "base-a",
+  "name": "Main baseplate",
+  "zone": "base",
+  "cls": "Wall",
+  "cells": [
+   7,
+   0,
+   40,
+   32
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.5,
+  "note": "Seams between plates not verified; 40x32 as observed"
+ },
+ {
+  "id": "base-b",
+  "name": "Dining-room plate",
+  "zone": "base",
+  "cls": "Wall",
+  "cells": [
+   0,
+   16,
+   7,
+   16
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.5
+ },
+ {
+  "id": "chicken",
+  "name": "Giant chicken",
+  "zone": "chicken",
+  "cls": "Creature",
+  "cells": [
+   4,
+   0,
+   11,
+   10
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "open"
+  ],
+  "sources": [
+   "IMG_7107",
+   "IMG_7110",
+   "IMG_7116",
+   "IMG_7122"
+  ],
+  "confidence": 0.6,
+  "note": "Brick-built; lid hinge read from IMG_7116"
+ },
+ {
+  "id": "slide",
+  "name": "Fire slide",
+  "zone": "chicken",
+  "cls": "Prop",
+  "cells": [
+   12,
+   0,
+   3,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "climb"
+  ],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "stack",
+  "name": "Colour stack",
+  "zone": "throne",
+  "cls": "Prop",
+  "cells": [
+   13,
+   4,
+   4,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "throne",
+  "name": "Yellow throne",
+  "zone": "throne",
+  "cls": "Seat",
+  "cells": [
+   12,
+   8,
+   4,
+   7
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "sit"
+  ],
+  "sources": [
+   "IMG_7109",
+   "IMG_7110",
+   "IMG_7122"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "campfire",
+  "name": "Campfire patio",
+  "zone": "patio",
+  "cls": "Light",
+  "cells": [
+   30,
+   0,
+   7,
+   7
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "ignite",
+   "sit"
+  ],
+  "sources": [
+   "IMG_7109",
+   "IMG_7117",
+   "IMG_7121"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "tv",
+  "name": "TV wall",
+  "zone": "patio",
+  "cls": "Prop",
+  "cells": [
+   32,
+   6,
+   6,
+   2
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.5,
+  "note": "Read as a TV from IMG_7117; ask the builder"
+ },
+ {
+  "id": "chest",
+  "name": "Treasure chest",
+  "zone": "front",
+  "cls": "Container",
+  "cells": [
+   40,
+   2,
+   2,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "open"
+  ],
+  "sources": [
+   "IMG_7109",
+   "IMG_7121"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "spire",
+  "name": "Rock spire",
+  "zone": "front",
+  "cls": "Wall",
+  "cells": [
+   44,
+   1,
+   3,
+   3
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7105",
+   "IMG_7117",
+   "IMG_7121"
+  ],
+  "confidence": 0.6
+ },
+ {
+  "id": "lantern-wall",
+  "name": "Stone wall with lanterns",
+  "zone": "front",
+  "cls": "Wall",
+  "cells": [
+   44,
+   5,
+   3,
+   18
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "ignite"
+  ],
+  "sources": [
+   "IMG_7109",
+   "IMG_7121",
+   "IMG_7122"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "horn",
+  "name": "White horn",
+  "zone": "front",
+  "cls": "Prop",
+  "cells": [
+   45,
+   26,
+   2,
+   2
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109",
+   "IMG_7121"
+  ],
+  "confidence": 0.5
+ },
+ {
+  "id": "tower",
+  "name": "Rainbow tower",
+  "zone": "centre",
+  "cls": "Wall",
+  "cells": [
+   37,
+   13,
+   4,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "climb"
+  ],
+  "sources": [
+   "IMG_7107",
+   "IMG_7121",
+   "IMG_7122"
+  ],
+  "confidence": 0.6
+ },
+ {
+  "id": "palm",
+  "name": "Palm tree",
+  "zone": "centre",
+  "cls": "Plant",
+  "cells": [
+   30,
+   13,
+   4,
+   6
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7105",
+   "IMG_7111",
+   "IMG_7121"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "princess",
+  "name": "Princess",
+  "zone": "centre",
+  "cls": "Figure",
+  "cells": [
+   27,
+   15,
+   1,
+   1
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "talk"
+  ],
+  "sources": [
+   "IMG_7105",
+   "IMG_7110"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "computer",
+  "name": "Computer desk",
+  "zone": "centre",
+  "cls": "Prop",
+  "cells": [
+   21,
+   17,
+   4,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109",
+   "IMG_7112"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "darts",
+  "name": "Dartboard",
+  "zone": "centre",
+  "cls": "Prop",
+  "cells": [
+   20,
+   21,
+   3,
+   1
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.5
+ },
+ {
+  "id": "lamps",
+  "name": "Clear lamps",
+  "zone": "patio",
+  "cls": "Light",
+  "cells": [
+   20,
+   27,
+   2,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "ignite"
+  ],
+  "sources": [
+   "IMG_7105",
+   "IMG_7111",
+   "IMG_7122"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "fence-front",
+  "name": "White fence",
+  "zone": "front",
+  "cls": "Wall",
+  "cells": [
+   24,
+   0,
+   4,
+   1
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "sofa",
+  "name": "Sofa",
+  "zone": "patio",
+  "cls": "Seat",
+  "cells": [
+   24,
+   22,
+   3,
+   6
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "sit"
+  ],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.5,
+  "note": "Read from IMG_7111 / IMG_7118"
+ },
+ {
+  "id": "front-door",
+  "name": "Front door",
+  "zone": "entrance",
+  "cls": "Door",
+  "cells": [
+   27,
+   30,
+   4,
+   1
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "open"
+  ],
+  "sources": [
+   "IMG_7105",
+   "IMG_7111",
+   "IMG_7121"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "torches",
+  "name": "Tiki torches",
+  "zone": "entrance",
+  "cls": "Light",
+  "cells": [
+   27,
+   30,
+   4,
+   1
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "ignite"
+  ],
+  "sources": [
+   "IMG_7105",
+   "IMG_7106",
+   "IMG_7111"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "jail",
+  "name": "Jail cell",
+  "zone": "cell",
+  "cls": "Door",
+  "cells": [
+   9,
+   17,
+   7,
+   7
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "open"
+  ],
+  "sources": [
+   "IMG_7108",
+   "IMG_7110",
+   "IMG_7123"
+  ],
+  "confidence": 0.7,
+  "note": "Barred door read as a cell; ask the builder"
+ },
+ {
+  "id": "dining",
+  "name": "Dining room",
+  "zone": "dining",
+  "cls": "Seat",
+  "cells": [
+   0,
+   16,
+   8,
+   16
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "sit",
+   "eat"
+  ],
+  "sources": [
+   "IMG_7108",
+   "IMG_7113",
+   "IMG_7115",
+   "IMG_7119",
+   "IMG_7120",
+   "IMG_7123"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "hugo",
+  "name": "Hugo (dad)",
+  "zone": "dining",
+  "cls": "Figure",
+  "cells": [
+   4,
+   29,
+   2,
+   2
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7108",
+   "IMG_7113",
+   "IMG_7120"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "dada",
+  "name": "Dada (son)",
+  "zone": "dining",
+  "cls": "Figure",
+  "cells": [
+   4,
+   23,
+   2,
+   2
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7108",
+   "IMG_7113",
+   "IMG_7120"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "kart",
+  "name": "Go-kart",
+  "zone": "dining",
+  "cls": "Vehicle",
+  "cells": [
+   2,
+   18,
+   4,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "drive"
+  ],
+  "sources": [
+   "IMG_7108",
+   "IMG_7120"
+  ],
+  "confidence": 0.7,
+  "note": "Wheels are an extension"
+ },
+ {
+  "id": "kart-wheels",
+  "name": "Kart wheels",
+  "zone": "dining",
+  "cls": "Vehicle",
+  "cells": [
+   2,
+   18,
+   4,
+   4
+  ],
+  "provenance": "extension",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "flowerbox",
+  "name": "Flower box",
+  "zone": "dining",
+  "cls": "Plant",
+  "cells": [
+   9,
+   26,
+   3,
+   4
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "kitchen",
+  "name": "Kitchen stack",
+  "zone": "dining",
+  "cls": "Prop",
+  "cells": [
+   16,
+   25,
+   4,
+   6
+  ],
+  "provenance": "as-built",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.4
+ },
+ {
+  "id": "bed",
+  "name": "Rainbow bed",
+  "zone": "bedroom",
+  "cls": "Seat",
+  "cells": [
+   33,
+   22,
+   11,
+   6
+  ],
+  "provenance": "as-built",
+  "affordances": [
+   "sleep"
+  ],
+  "sources": [
+   "IMG_7109",
+   "IMG_7111",
+   "IMG_7121"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "triceratops",
+  "name": "Triceratops",
+  "zone": "yard",
+  "cls": "Creature",
+  "cells": [
+   21,
+   1,
+   8,
+   4
+  ],
+  "provenance": "inferred",
+  "affordances": [
+   "ride"
+  ],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7,
+  "note": "Moulded toy; procedural stand-in"
+ },
+ {
+  "id": "ankylosaur",
+  "name": "Ankylosaur",
+  "zone": "yard",
+  "cls": "Creature",
+  "cells": [
+   24,
+   10,
+   4,
+   3
+  ],
+  "provenance": "inferred",
+  "affordances": [
+   "ride"
+  ],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "raptor",
+  "name": "Raptor",
+  "zone": "yard",
+  "cls": "Creature",
+  "cells": [
+   29,
+   10,
+   5,
+   2
+  ],
+  "provenance": "inferred",
+  "affordances": [
+   "ride"
+  ],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "fox",
+  "name": "Fox",
+  "zone": "yard",
+  "cls": "Creature",
+  "cells": [
+   22,
+   7,
+   8,
+   2
+  ],
+  "provenance": "inferred",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "garage",
+  "name": "Garage bay",
+  "zone": "extension",
+  "cls": "Wall",
+  "cells": [
+   0,
+   32,
+   9,
+   10
+  ],
+  "provenance": "extension",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ },
+ {
+  "id": "driveway",
+  "name": "Driveway",
+  "zone": "extension",
+  "cls": "Wall",
+  "cells": [
+   27,
+   32,
+   4,
+   12
+  ],
+  "provenance": "extension",
+  "affordances": [],
+  "sources": [
+   "IMG_7109"
+  ],
+  "confidence": 0.7
+ }
+]

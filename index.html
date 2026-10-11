@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luxury Dreamhouse</title>
+<meta name="description" content="A brick dream house, scanned from photos into an open-world WebGPU game on Dreamhouse Island." />
+<meta name="theme-color" content="#0d1b2a" />
+<style>
+  :root { --ink: #1b2a34; --paper: #fbf8f1; --yellow: #f2cd37; --red: #c91a09; --blue: #0055bf; --glass: rgba(14, 22, 34, 0.62); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0d1b2a; color: var(--paper); overflow: hidden;
+    font-family: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI", system-ui, sans-serif; }
+  canvas { display: block; width: 100vw; height: 100vh; outline: none; }
+  kbd { display: inline-block; min-width: 1.7em; padding: 0.08em 0.45em; border-radius: 0.4em; background: var(--paper); color: var(--ink);
+    font: 700 0.85em/1.4 ui-monospace, "SF Mono", Menlo, monospace; text-align: center; box-shadow: 0 2px 0 rgba(0,0,0,0.35); }
+
+  #title { position: fixed; inset: 0; display: grid; place-items: end start; padding: clamp(20px, 5vw, 64px);
+    background: linear-gradient(90deg, rgba(8,14,22,0.86) 0%, rgba(8,14,22,0.6) 38%, rgba(8,14,22,0) 68%), linear-gradient(180deg, rgba(8,14,22,0) 40%, rgba(8,14,22,0.6) 100%); transition: opacity 0.6s; z-index: 5; }
+  #title.gone { opacity: 0; pointer-events: none; }
+  .card { max-width: 640px; }
+  .eyebrow { font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px; color: var(--yellow); }
+  h1 { margin: 6px 0 10px; font-size: clamp(44px, 8vw, 92px); line-height: 0.92; font-weight: 900; letter-spacing: -0.03em;
+    text-shadow: 0 4px 0 rgba(0,0,0,0.25); }
+  h1 span { color: var(--yellow); }
+  .lede { margin: 0 0 22px; font-size: 17px; line-height: 1.45; color: #dfe7ef; max-width: 52ch; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  button.play { appearance: none; border: 0; cursor: pointer; padding: 14px 26px; border-radius: 14px; background: var(--yellow); color: var(--ink);
+    font: 800 18px/1 inherit; font-family: inherit; box-shadow: 0 5px 0 #b8942a, 0 10px 24px rgba(0,0,0,0.35); transition: transform 0.08s; }
+  button.play:active { transform: translateY(3px); box-shadow: 0 2px 0 #b8942a; }
+  .studs { display: inline-grid; grid-template-columns: repeat(4, 10px); gap: 4px; margin-left: 4px; vertical-align: middle; }
+  .studs i { width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff6c8, var(--yellow) 60%, #b8942a); }
+  .keys { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 22px; margin-top: 22px; font-size: 14px; color: #cfd8e2; }
+  .keys div { display: flex; gap: 8px; align-items: center; }
+  .note { margin-top: 16px; font-size: 12px; color: #9fb0c2; }
+  .note a { color: #cfe3ff; }
+
+  #hud { position: fixed; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.4s; z-index: 4; }
+  #hud.on { opacity: 1; }
+  .chip { position: absolute; top: 16px; left: 16px; display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 999px;
+    background: var(--glass); backdrop-filter: blur(8px); }
+  .chip .dot { width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2); }
+  .chip b { font-size: 16px; } .chip small { display: block; font-size: 11px; color: #b9c6d3; letter-spacing: 0.06em; text-transform: uppercase; }
+  .chip .tab { margin-left: 8px; font-size: 12px; color: #b9c6d3; }
+  .treasure { position: absolute; top: 16px; right: 16px; padding: 8px 14px; border-radius: 999px; background: var(--glass); backdrop-filter: blur(8px); font-weight: 700; }
+  .treasure span { color: var(--yellow); margin-right: 6px; }
+  #prompt { position: absolute; left: 50%; bottom: 46px; transform: translate(-50%, 10px); padding: 10px 16px; border-radius: 12px; background: var(--glass);
+    backdrop-filter: blur(8px); font-weight: 700; font-size: 16px; opacity: 0; transition: opacity 0.15s, transform 0.15s; white-space: nowrap; }
+  #prompt.on { opacity: 1; transform: translate(-50%, 0); }
+  #toast { position: absolute; left: 50%; top: 18%; transform: translateX(-50%); padding: 12px 18px; border-radius: 12px; background: rgba(251, 248, 241, 0.94);
+    color: var(--ink); font-weight: 700; font-size: 16px; max-width: min(640px, 88vw); text-align: center; opacity: 0; transition: opacity 0.25s; }
+  #toast.on { opacity: 1; }
+  #zone { position: absolute; left: 50%; top: 8%; transform: translateX(-50%); font-size: clamp(22px, 3.4vw, 36px); font-weight: 900; letter-spacing: -0.01em;
+    text-shadow: 0 3px 14px rgba(0,0,0,0.55); opacity: 0; transition: opacity 0.5s; }
+  #zone.on { opacity: 1; }
+  .hint { position: absolute; right: 16px; bottom: 16px; font-size: 12px; color: #dfe7ef; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+  #help { position: absolute; right: 16px; bottom: 44px; width: 300px; padding: 14px 16px; border-radius: 14px; background: var(--glass); backdrop-filter: blur(10px);
+    font-size: 13px; line-height: 1.9; display: none; }
+  #help.on { display: block; }
+  #fade { position: fixed; inset: 0; background: #050a12; opacity: 0; pointer-events: none; transition: opacity 0.6s; z-index: 6; }
+  #fade.on { opacity: 1; }
+  #err { position: fixed; inset: auto 16px 16px 16px; padding: 12px 14px; border-radius: 10px; background: #5a0e0e; color: #fff; font: 13px/1.4 ui-monospace, monospace; display: none; z-index: 9; white-space: pre-wrap; }
+  .shot #title, .shot #hud { display: none; }
+</style>
+</head>
+<body>
+<canvas id="c" tabindex="0"></canvas>
+
+<section id="title">
+  <div class="card">
+    <div class="eyebrow">Dreamhouse Island <span class="studs"><i></i><i></i><i></i><i></i></span></div>
+    <h1>Luxury<br /><span>Dreamhouse</span></h1>
+    <p class="lede">A brick house built on the living-room rug, scanned from photos into a world you can walk around. Play as Hugo and Dada, drive the kart round the island, ride the dinosaurs, find the nine treasure chests.</p>
+    <div class="row"><button class="play" id="play">Play</button><span id="status" style="color:#b9c6d3;font-size:14px">Loading bricks&hellip;</span></div>
+    <div class="keys">
+      <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk / drive</div>
+      <div><kbd>Mouse</kbd> look &middot; wheel zoom</div>
+      <div><kbd>Shift</kbd> run &middot; <kbd>Space</kbd> jump</div>
+      <div><kbd>E</kbd> open, sit, drive, ride</div>
+      <div><kbd>Tab</kbd> switch character</div>
+      <div><kbd>N</kbd> day / night &middot; <kbd>H</kbd> help</div>
+    </div>
+    <p class="note">Best in Chrome, Edge or Safari 26 on a desktop GPU. Fan project; not affiliated with any toy company.</p>
+  </div>
+</section>
+
+<section id="hud">
+  <div class="chip"><div class="dot"></div><div><b id="who">Hugo</b><small id="role">Dad</small></div><span class="tab"><kbd>Tab</kbd></span></div>
+  <div class="treasure"><span>&#9670;</span><b id="chests">0 / 9</b></div>
+  <div id="zone"></div>
+  <div id="toast"></div>
+  <div id="prompt"></div>
+  <div class="hint"><kbd>H</kbd> help</div>
+  <div id="help">
+    <kbd>W A S D</kbd> move &nbsp; <kbd>Shift</kbd> run &nbsp; <kbd>Space</kbd> jump<br />
+    <kbd>E</kbd> doors, seats, kart, dinosaurs, chests, lights<br />
+    <kbd>Tab</kbd> switch Hugo / Dada / Princess / Blocky<br />
+    <kbd>N</kbd> day / night &nbsp; <kbd>T</kbd> +1 hour<br />
+    <kbd>P</kbd> photo mode (macro focus) &nbsp; <kbd>Q</kbd> quality<br />
+    <kbd>B</kbd> as built (hide extensions) &nbsp; <kbd>R</kbd> back home
+  </div>
+</section>
+<div id="fade"></div>
+<div id="err"></div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
